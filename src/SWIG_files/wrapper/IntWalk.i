@@ -444,6 +444,9 @@ class IntWalk_TheInt2S {
 
 %nodefaultctor IntWalk_WalkingData;
 class IntWalk_WalkingData {
+	Standard_Real ustart;
+	Standard_Real vstart;
+	Standard_Integer etat;
 	public:
 };
 

@@ -1443,6 +1443,10 @@ class Aspect_GenId {
 
 %nodefaultctor Aspect_GraphicCallbackStruct;
 class Aspect_GraphicCallbackStruct {
+	int reason;
+	int wsID;
+	int viewID;
+	Handle_Standard_Transient glContext;
 	public:
 };
 

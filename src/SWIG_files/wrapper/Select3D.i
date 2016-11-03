@@ -63,6 +63,10 @@ enum Select3D_TypeOfSensitivity {
 
 %nodefaultctor Select3D_Box2d;
 class Select3D_Box2d {
+	Standard_ShortReal xmin;
+	Standard_ShortReal ymin;
+	Standard_ShortReal xmax;
+	Standard_ShortReal ymax;
 	public:
 		%feature("compactdefaultargs") Select3D_Box2d;
 		%feature("autodoc", "	:rtype: None
@@ -559,6 +563,9 @@ class Select3D_ListOfSensitiveTriangle {
 
 %nodefaultctor Select3D_Pnt;
 class Select3D_Pnt {
+	Standard_ShortReal x;
+	Standard_ShortReal y;
+	Standard_ShortReal z;
 	public:
 		%feature("compactdefaultargs") operator gp_Pnt;
 		%feature("autodoc", "	:rtype: inline
@@ -579,6 +586,8 @@ class Select3D_Pnt {
 
 %nodefaultctor Select3D_Pnt2d;
 class Select3D_Pnt2d {
+	Standard_ShortReal x;
+	Standard_ShortReal y;
 	public:
 		%feature("compactdefaultargs") operator gp_Pnt2d;
 		%feature("autodoc", "	:rtype: inline

@@ -1921,6 +1921,8 @@ class Handle_Graphic3d_AspectText3d : public Handle_MMgt_TShared {
 
 %nodefaultctor Graphic3d_Attribute;
 class Graphic3d_Attribute {
+	Graphic3d_TypeOfAttribute Id;
+	Graphic3d_TypeOfData DataType;
 	public:
 		%feature("compactdefaultargs") Stride;
 		%feature("autodoc", "	* //!< vec2,vec3,vec4,vec4ub
@@ -1941,6 +1943,9 @@ class Graphic3d_Attribute {
 
 %nodefaultctor Graphic3d_BoundBuffer;
 class Graphic3d_BoundBuffer : public NCollection_Buffer {
+	Graphic3d_Vec4 * Colors;
+	Standard_Integer * Bounds;
+	Standard_Integer NbBounds;
 	public:
 		%feature("compactdefaultargs") Graphic3d_BoundBuffer;
 		%feature("autodoc", "	* Empty constructor.
@@ -2011,6 +2016,25 @@ class Handle_Graphic3d_BoundBuffer : public Handle_NCollection_Buffer {
 
 %nodefaultctor Graphic3d_CAspectFillArea;
 class Graphic3d_CAspectFillArea {
+	int IsDef;
+	int IsSet;
+	int Style;
+	CALL_DEF_COLOR IntColor;
+	CALL_DEF_COLOR BackIntColor;
+	CALL_DEF_COLOR EdgeColor;
+	int LineType;
+	float Width;
+	int Hatch;
+	int Distinguish;
+	int BackFace;
+	int Edge;
+	CALL_DEF_MATERIAL Front;
+	CALL_DEF_MATERIAL Back;
+	Graphic3d_CTexture Texture;
+	int PolygonOffsetMode;
+	float PolygonOffsetFactor;
+	float PolygonOffsetUnits;
+	Handle_Graphic3d_ShaderProgram ShaderProgram;
 	public:
 		%feature("compactdefaultargs") Graphic3d_CAspectFillArea;
 		%feature("autodoc", "	:rtype: None
@@ -2021,12 +2045,25 @@ class Graphic3d_CAspectFillArea {
 
 %nodefaultctor Graphic3d_CAspectLine;
 class Graphic3d_CAspectLine {
+	int IsDef;
+	int IsSet;
+	CALL_DEF_COLOR Color;
+	int LineType;
+	float Width;
+	Handle_Graphic3d_ShaderProgram ShaderProgram;
 	public:
 };
 
 
 %nodefaultctor Graphic3d_CAspectMarker;
 class Graphic3d_CAspectMarker {
+	Standard_Integer IsDef;
+	Standard_Integer IsSet;
+	CALL_DEF_COLOR Color;
+	Aspect_TypeOfMarker MarkerType;
+	Standard_ShortReal Scale;
+	Handle_Graphic3d_MarkerImage MarkerImage;
+	Handle_Graphic3d_ShaderProgram ShaderProgram;
 	public:
 		%feature("compactdefaultargs") Graphic3d_CAspectMarker;
 		%feature("autodoc", "	:rtype: None
@@ -2037,36 +2074,137 @@ class Graphic3d_CAspectMarker {
 
 %nodefaultctor Graphic3d_CAspectText;
 class Graphic3d_CAspectText {
+	int IsDef;
+	int IsSet;
+	float Space;
+	float Expan;
+	CALL_DEF_COLOR Color;
+	int Style;
+	int DisplayType;
+	CALL_DEF_COLOR ColorSubTitle;
+	int TextZoomable;
+	float TextAngle;
+	int TextFontAspect;
+	Handle_Graphic3d_ShaderProgram ShaderProgram;
 	public:
 };
 
 
 %nodefaultctor Graphic3d_CBitFields16;
 class Graphic3d_CBitFields16 {
+	unsigned bool1;
+	unsigned bool2;
+	unsigned bool3;
+	unsigned bool4;
+	unsigned bool5;
+	unsigned bool6;
+	unsigned bool7;
+	unsigned bool8;
+	unsigned bool9;
+	unsigned bool10;
+	unsigned bool11;
+	unsigned bool12;
+	unsigned bool13;
+	unsigned bool14;
+	unsigned bool15;
+	unsigned bool16;
 	public:
 };
 
 
 %nodefaultctor Graphic3d_CBitFields20;
 class Graphic3d_CBitFields20 {
+	unsigned bool1;
+	unsigned bool2;
+	unsigned bool3;
+	unsigned bool4;
+	unsigned bool5;
+	unsigned bool6;
+	unsigned bool7;
+	unsigned bool8;
+	unsigned bool9;
+	unsigned bool10;
+	unsigned bool11;
+	unsigned bool12;
+	unsigned bool13;
+	unsigned bool14;
+	unsigned bool15;
+	unsigned bool16;
+	unsigned bool17;
+	unsigned bool18;
+	unsigned bool19;
+	unsigned bool20;
 	public:
 };
 
 
 %nodefaultctor Graphic3d_CBitFields4;
 class Graphic3d_CBitFields4 {
+	unsigned bool1;
+	unsigned bool2;
+	unsigned bool3;
+	unsigned bool4;
 	public:
 };
 
 
 %nodefaultctor Graphic3d_CBitFields8;
 class Graphic3d_CBitFields8 {
+	unsigned bool1;
+	unsigned bool2;
+	unsigned bool3;
+	unsigned bool4;
+	unsigned bool5;
+	unsigned bool6;
+	unsigned bool7;
+	unsigned bool8;
 	public:
 };
 
 
 %nodefaultctor Graphic3d_CGraduatedTrihedron;
 class Graphic3d_CGraduatedTrihedron {
+	TCollection_ExtendedString xname;
+	TCollection_ExtendedString yname;
+	TCollection_ExtendedString zname;
+	Standard_Boolean xdrawname;
+	Standard_Boolean ydrawname;
+	Standard_Boolean zdrawname;
+	Standard_Boolean xdrawvalues;
+	Standard_Boolean ydrawvalues;
+	Standard_Boolean zdrawvalues;
+	Standard_Boolean drawgrid;
+	Standard_Boolean drawaxes;
+	Standard_Integer nbx;
+	Standard_Integer nby;
+	Standard_Integer nbz;
+	Standard_Integer xoffset;
+	Standard_Integer yoffset;
+	Standard_Integer zoffset;
+	Standard_Integer xaxisoffset;
+	Standard_Integer yaxisoffset;
+	Standard_Integer zaxisoffset;
+	Standard_Boolean xdrawtickmarks;
+	Standard_Boolean ydrawtickmarks;
+	Standard_Boolean zdrawtickmarks;
+	Standard_Integer xtickmarklength;
+	Standard_Integer ytickmarklength;
+	Standard_Integer ztickmarklength;
+	Quantity_Color gridcolor;
+	Quantity_Color xnamecolor;
+	Quantity_Color ynamecolor;
+	Quantity_Color znamecolor;
+	Quantity_Color xcolor;
+	Quantity_Color ycolor;
+	Quantity_Color zcolor;
+	TCollection_AsciiString fontOfNames;
+	Font_FontAspect styleOfNames;
+	Standard_Integer sizeOfNames;
+	TCollection_AsciiString fontOfValues;
+	Font_FontAspect styleOfValues;
+	Standard_Integer sizeOfValues;
+	minMaxValuesCallback cbCubicAxes;
+	Visual3d_View * ptrVisual3dView;
 	public:
 		%feature("compactdefaultargs") Graphic3d_CGraduatedTrihedron;
 		%feature("autodoc", "	:rtype: None
@@ -2077,6 +2215,12 @@ class Graphic3d_CGraduatedTrihedron {
 
 %nodefaultctor Graphic3d_CLight;
 class Graphic3d_CLight {
+	Graphic3d_Vec4 Color;
+	Graphic3d_Vec4 Position;
+	Graphic3d_Vec4 Direction;
+	Graphic3d_Vec4 Params;
+	Standard_Integer Type;
+	Standard_Boolean IsHeadlight;
 	public:
 		%feature("compactdefaultargs") ConstAttenuation;
 		%feature("autodoc", "	* //!< flag to mark head light Const attenuation factor of positional light source
@@ -2139,6 +2283,27 @@ class Graphic3d_CLight {
 
 %nodefaultctor Graphic3d_CStructure;
 class Graphic3d_CStructure : public Standard_Transient {
+	int Id;
+	int Priority;
+	int PreviousPriority;
+	CALL_DEF_CONTEXTLINE ContextLine;
+	CALL_DEF_CONTEXTFILLAREA ContextFillArea;
+	CALL_DEF_CONTEXTMARKER ContextMarker;
+	CALL_DEF_CONTEXTTEXT ContextText;
+	CALL_DEF_COLOR HighlightColor;
+	float Transformation;
+	Graphic3d_TypeOfComposition Composition;
+	int ContainsFacet;
+	unsigned IsInfinite;
+	unsigned stick;
+	unsigned highlight;
+	unsigned visible;
+	unsigned pick;
+	unsigned HLRValidation;
+	unsigned IsForHighlight;
+	unsigned IsMutable;
+	unsigned Is2dText;
+	CALL_DEF_TRANSFORM_PERSISTENCE TransformPersistence;
 	public:
 		%feature("compactdefaultargs") GraphicDriver;
 		%feature("autodoc", "	* returns graphic driver created this structure
@@ -2313,6 +2478,8 @@ class Handle_Graphic3d_CStructure : public Handle_Standard_Transient {
 
 %nodefaultctor Graphic3d_CTexture;
 class Graphic3d_CTexture {
+	Handle_Graphic3d_TextureMap TextureMap;
+	int doTextureMap;
 	public:
 		%feature("compactdefaultargs") Graphic3d_CTexture;
 		%feature("autodoc", "	:rtype: None
@@ -2323,6 +2490,24 @@ class Graphic3d_CTexture {
 
 %nodefaultctor Graphic3d_CView;
 class Graphic3d_CView {
+	int WsId;
+	int ViewId;
+	void * ptrView;
+	int IsDeleted;
+	int IsOpen;
+	int Active;
+	CALL_DEF_VIEWCONTEXT Context;
+	CALL_DEF_WINDOW DefWindow;
+	void * ptrUnderLayer;
+	void * ptrOverLayer;
+	int Backfacing;
+	Aspect_RenderingContext GContext;
+	Aspect_GraphicCallbackProc GDisplayCB;
+	void * GClientData;
+	void * ptrFBO;
+	mutable int WasRedrawnGL;
+	Graphic3d_RenderingParams RenderParams;
+	Standard_Boolean IsCullingEnabled;
 	public:
 		%feature("compactdefaultargs") Graphic3d_CView;
 		%feature("autodoc", "	:rtype: None
@@ -5455,6 +5640,12 @@ class Graphic3d_MaterialAspect {
 
 %nodefaultctor Graphic3d_RenderingParams;
 class Graphic3d_RenderingParams {
+	Graphic3d_RenderingMode Method;
+	Standard_Integer RaytracingDepth;
+	Standard_Boolean IsShadowEnabled;
+	Standard_Boolean IsReflectionEnabled;
+	Standard_Boolean IsAntialiasingEnabled;
+	Standard_Boolean IsTransparentShadowEnabled;
 	public:
 		%feature("compactdefaultargs") Graphic3d_RenderingParams;
 		%feature("autodoc", "	* Creates default rendering parameters.
@@ -7783,6 +7974,9 @@ class Graphic3d_Vertex : public TEL_POINT {
 
 %nodefaultctor Graphic3d_ZLayerSettings;
 class Graphic3d_ZLayerSettings {
+	Standard_ShortReal DepthOffsetFactor;
+	Standard_ShortReal DepthOffsetUnits;
+	Standard_Integer Flags;
 	public:
 		%feature("compactdefaultargs") Graphic3d_ZLayerSettings;
 		%feature("autodoc", "	:rtype: None

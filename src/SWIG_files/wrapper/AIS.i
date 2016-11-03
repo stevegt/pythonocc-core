@@ -7772,6 +7772,9 @@ class Handle_AIS_Circle : public Handle_AIS_InteractiveObject {
 
 %nodefaultctor AIS_ColoredDrawer;
 class AIS_ColoredDrawer : public AIS_Drawer {
+	Standard_Boolean myIsHidden;
+	Standard_Boolean myHasOwnColor;
+	Standard_Boolean myHasOwnWidth;
 	public:
 		%feature("compactdefaultargs") AIS_ColoredDrawer;
 		%feature("autodoc", "	:param theLink:
